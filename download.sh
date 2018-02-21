@@ -10,4 +10,4 @@ echo "Copying .tmux.conf to home directory..."
 cp .tmux.conf ~/.tmux.conf
 
 echo "Copying .conky to home directory..."
-cp .conky ~/.conky
+cp -r .conky ~/.conky

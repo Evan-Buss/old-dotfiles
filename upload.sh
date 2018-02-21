@@ -10,4 +10,4 @@ echo "Copying .tmux.conf to repo..."
 cp ~/.tmux.conf .tmux.conf
 
 echo "Copying .conky to repo..."
-cp ~/.conky .conky
+cp -r ~/.conky .conky
