@@ -7,7 +7,7 @@ export ZSH=/home/evan/.oh-my-zsh
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="dracula"
-ZSH_THEME="avit"
+ZSH_THEME="sorin"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
