@@ -1,4 +1,5 @@
 #!/bin/bash
+#copies files from directory to this git repo
 echo "Copying .vimrc"
 cp ~/.vimrc .vimrc
 
