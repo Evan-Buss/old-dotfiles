@@ -40,25 +40,13 @@ show_graph_range no
 
 use_xft yes
 xftalpha 0.1
-xftfont Droid Sans:size=10
+xftfont Iosevka:size=12
 color0 white
-color1 EAEAEA
+color1 FFC901 
 color2 ff4d4d
 color3 grey
 
 TEXT
-${color0}CPU ${color0}${alignr}${cpu cpu0}%
-${cpubar cpu0 5,}
-#${top name 1} $alignr ${top cpu 1}%
-#${top name 2} $alignr ${top cpu 2}%
-#${top name 3} $alignr ${top cpu 3}%
-#${top name 4} $alignr ${top cpu 4}%
-#${top name 5} $alignr ${top cpu 5}%
+${color1}CPU ${color0} ${cpu cpu0}% ${cpubar cpu0 12,}
+${color1}RAM ${color0} ${mem}  ${membar 12,}
 
-${color0}RAM ${color0}${alignr}${mem}
-${membar 5,}
-#${top_mem name 1} $alignr ${top_mem #mem_res 1}
-#${top_mem name 2} $alignr ${top_mem #mem_res 2}
-#${top_mem name 3} $alignr ${top_mem #mem_res 3}
-#${top_mem name 4} $alignr ${top_mem #mem_res 4}
-#${top_mem name 5} $alignr ${top_mem #mem_res 5}
