@@ -2,7 +2,7 @@
 #copies files from git repo to their home directories
 
 echo "Removing old folders..."
-rm -r .conky
+rm -r ~/.conky
 # rm -r .vim
 # rm -r .oh-my-zsh
 
