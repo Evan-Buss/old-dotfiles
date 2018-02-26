@@ -26,7 +26,9 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'dracula/vim'
 Plugin 'ayu-theme/ayu-vim'
 Plugin 'arcticicestudio/nord-vim'
-"
+Plugin 'CreaturePhil/vim-handmade-hero'
+
+
 "Comments and file tree
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
@@ -69,7 +71,6 @@ if !has('gui_running')
 endif
 
 let g:lightline = {
-    \ 'colorscheme': 'nord',
     \ 'tabline': {
     \   'left': [ [ 'bufferinfo' ],
     \             [ 'separator' ],
@@ -157,10 +158,10 @@ set autoindent
 "filetype plugin indent on
 
 "Colorscheme settings
-"set termguicolors
-let g:nord_comment_brightness=20
-colorscheme nord 
-
+set termguicolors
+"let g:nord_comment_brightness=20
+"colorscheme nord 
+colorscheme handmade-hero
 " Brief help
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
