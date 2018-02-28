@@ -1,12 +1,12 @@
 #!/bin/bash
 #copies files from directory to this git repo
 echo "Removing old files from repo directory"
-rm .vimrc
+#rm .vimrc
 
-rm .zshrc
-rm .zsh_history
+#rm .zshrc
+#rm .zsh_history
 
-rm .tmux.conf
+#rm .tmux.conf
 rm -r .conky
 
 echo "Copying .vimrc to repo..."

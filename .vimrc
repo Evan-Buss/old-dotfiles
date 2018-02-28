@@ -158,10 +158,12 @@ set autoindent
 "filetype plugin indent on
 
 "Colorscheme settings
-set termguicolors
+" set termguicolors
+
 "let g:nord_comment_brightness=20
 "colorscheme nord 
-colorscheme handmade-hero
+" colorscheme handmade-hero
+colorscheme dracula
 " Brief help
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
