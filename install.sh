@@ -3,9 +3,12 @@
 
 echo "Removing old folders..."
 rm -r ~/.conky
+rm -r ~/.config/polybar
+rm -r ~/.config/i3
 # rm -r .vim
 # rm -r .oh-my-zsh
-
+cp -a i3 ~/.config
+cp -a polybar ~/.config
 echo "Copying .vimrc to home directory..."
 cp .vimrc ~/.vimrc
 

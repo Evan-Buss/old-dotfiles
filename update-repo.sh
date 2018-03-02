@@ -2,13 +2,15 @@
 #copies files from directory to this git repo
 echo "Removing old files from repo directory"
 #rm .vimrc
-
+rm -r i3
+rm -r polybar
 #rm .zshrc
 #rm .zsh_history
-
 #rm .tmux.conf
 rm -r .conky
 
+cp -a ~/.config/polybar polybar
+cp -a ~/.config/i3 i3
 echo "Copying .vimrc to repo..."
 cp ~/.vimrc .vimrc
 
