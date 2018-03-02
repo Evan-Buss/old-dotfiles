@@ -16,7 +16,7 @@ cp .vimrc ~/.vimrc
 # cp -a .vim ~/.vim
 
 echo "Copying .zshrc to home directory..."
-cp .zshrc ~/.zshrc 
+cp .zshrc ~/.zshrc
 
 # echo "Copying .oh-my-zsh folder to home directory..."
 # cp -a .oh-my-zsh ~/.oh-my-zsh
