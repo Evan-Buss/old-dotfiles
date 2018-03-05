@@ -1,15 +1,31 @@
+[colors]
+background 		= #aa282828
+bar-color 		= #44475a
+background-alt 	= #44282828
+foreground 		= #f2f2f2
+foreground-alt 	= #88f5f8f6
+black      		= #5b4848
+red	    		= #cb6077
+red-alt	    	= #44cb6077
+green			= #bec55b
+yellow			= #e4bc87
+blue			= #8ab3d5
+magenta    		= #a89bb9
+cyan	    	= #7bcdb4
+white			= #e0d8d6
+
 [settings]
 throttle-ms = 50
 throttle-limit = 5
 
 [bar/top]
-monitor = HDMI-1-1
+monitor = HDMI-1
 width = 100%
 height = 28
 offset-y = 5
 
-background = #44475a
-foreground = #f2f2f2
+background = ${colors.bar-color}
+foreground = ${colors.foreground}
 
 overline-size = 2
 overline-color = #bc92f8
@@ -21,15 +37,16 @@ padding-right = 2
 module-margin-left = 0
 module-margin-right = 2
 
-font-0 = RobotoMono Nerd Fonts:size=8;2
-font-1 = RobotoMono Nerd Fonts:size=8;2
-font-2 = RobotoMono Nerd Fonts:size=8:weight=bold;2
+font-0 = RobotoMono Nerd Font:size=8;2
+font-1 = RobotoMono Nerd Font:size=10;2
+font-2 = RobotoMono Nerd Font:size=10:weight=bold;2
 font-3 = Termsynu:size=8;1
 font-4 = Unifont:size=6;5
+font-5 = RobotoMono Nerd Font:size=12:weight=bold;2
 
-modules-left = i3
-modules-center = xwindow
-modules-right = volume cpu memory clock
+modules-left = i3 menu-apps
+modules-center = xwindow x
+modules-right = pulseaudio2 pulseaudio cpu memory clock
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -46,37 +63,101 @@ tray-transparent = false
 
 [module/i3]
 type = internal/i3
-
 format = <label-state> <label-mode>
-format-spacing = 0
+index-sort = true
+wrapping-scroll = false
 
-label-focused = %index%
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+# ws-icon-2 = 3; 
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-default = 
+
+label-mode-padding = 1
+label-mode-foreground = ${colors.foreground}
+label-mode-background = ${colors.background}
+
+label-focused = %icon%
+label-focused-background = #6272a4
+label-focused-foreground = ${colors.foreground}
+label-focused-underline = #8be9fd
 label-focused-padding = 2
-label-focused-margin = 1
-label-focused-font = 3
-label-focused-foreground = #fff
-label-focused-background = #2fbbf2
-label-focused-overline = #148ebe
-label-focused-underline = #148ebe
+label-focused-font = 6
 
-label-unfocused = %index%
+label-unfocused = %icon%
 label-unfocused-padding = 2
-label-unfocused-margin = 1
-label-unfocused-background = #eeeeee
-label-unfocused-foreground = #dd222222
-label-unfocused-overline = #c5c5c5
-label-unfocused-underline = #c5c5c5
-label-unfocused-font = 3
+label-unfocused-foreground = ${colors.foreground}
+label-unfocused-font = 6
 
-label-urgent = %index%
-label-urgent-padding = 2
-label-urgent-margin = 1
-label-urgent-font = 3
-
-label-visible = %index%
+label-visible = %icon%
 label-visible-padding = 2
-label-visible-margin = 1
-label-visible-font = 3
+label-visible-font = 6
+
+label-urgent = %icon%
+label-urgent-background = #bd93f9
+label-urgent-foreground = ${colors.foreground}
+label-urgent-padding = 2
+label-urgent-font = 6
+
+[module/menu-apps]
+type = custom/menu
+
+; If true, <label-toggle> will be to the left of the menu items (default).
+; If false, it will be on the right of all the items.
+expand-right = true
+
+; "menu-LEVEL-N" has the same properties as "label-NAME" with
+; the additional "exec" property
+;
+; Available exec commands:
+;   menu-open-LEVEL
+;   menu-close
+; Other commands will be executed using "/usr/bin/env sh -c $COMMAND"
+
+label-open = Menu
+label-close = X
+label-open-font = 3
+label-close-font = 3
+label-separator = |
+label-font = 3
+menu-0-0 = Browsers
+menu-0-0-exec = menu-open-1
+menu-0-1 = Terminal
+menu-0-1-exec = menu-open-2
+menu-0-2 = System
+menu-0-2-exec = menu-open-3
+
+menu-1-0 = Firefox
+menu-1-0-exec = firefox &
+menu-1-1 = Chromium
+menu-1-1-exec = chromium &
+
+menu-2-0 = Terminal
+menu-2-0-exec = gnome-terminal &
+menu-2-1 = gucharmap
+menu-2-1-exec = gucharmap &
+
+menu-3-0 = Lock
+menu-3-0-exec = betterlockscreen --lock blur
+menu-3-1 = Suspend
+menu-3-1-exec = betterlockscreen --suspend dimblur
+menu-3-2 = Logout
+menu-3-2-exec = i3-msg exit
+
+menu-3-3 = Shutdown
+menu-3-3-exec = systemctl shutdown
+menu-3-4 = Restart
+menu-3-4-exec = systemctl reboot
+
+
+[module/xwindow]
+type = internal/xwindow
+label-font = 3
 
 [module/cpu]
 type = internal/cpu
@@ -145,37 +226,54 @@ bar-used-empty-foreground = #934e94
 type = internal/date
 # date = %%{T3}%Y-%m-%d %H:%M%%{T-}
 date = %I:%M%p
-date-alt = %m-%d-%Y
+date-alt = %m.%d.%Y
 
 format-padding = 2
 format-background = #ff4279
 format-foreground = #ffcddc
 format-underline = #ff63a5
 format-overline = #ff63a5
+label-font = 3
 
-[module/volume]
-type = internal/volume
-speaker-mixer = Speaker
-headphone-mixer = Headphone
-headphone-id = 9
+[module/pulseaudio2]
+type = internal/pulseaudio
+sink = alsa_output.usb-Kingston_HyperX_7.1_Audio_00000000-00.analog-stereo
 
+format-volume = <label-volume>
+format-muted = <label-muted>
+label-muted = audio muted
+label-volume = volume %percentage%
 format-volume-padding = 2
+format-muted-padding = 2
+label-volume-font = 3
+label-muted-font = 3
+
 format-volume-background = #fff85a
 format-volume-foreground = #43433a
 format-volume-underline = #fffb8f
 format-volume-overline = #fffb8f
-
-format-muted-padding = 2
 format-muted-background = #77ffffff
 format-muted-foreground = #666666
 
-label-volume = volume %percentage%
+
+[module/pulseaudio]
+type = internal/pulseaudio
+sink = alsa_output.pci-0000_00_1b.0.analog-stereo
+
+format-volume = <label-volume>
+format-muted = <label-muted>
+label-muted = audio muted
+label-volume = %percentage%
+format-volume-padding = 2
+format-muted-padding = 2
 label-volume-font = 3
-label-muted = sound muted
 label-muted-font = 3
 
-[module/xwindow]
-type = internal/xwindow
-label-font = 3
+format-volume-background = #fff85a
+format-volume-foreground = #43433a
+format-volume-underline = #fffb8f
+format-volume-overline = #fffb8f
+format-muted-background = #77ffffff
+format-muted-foreground = #666666
 
 ; vim:ft=dosini

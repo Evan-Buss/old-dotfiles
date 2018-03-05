@@ -31,6 +31,9 @@ cp ~/.tmux.conf .tmux.conf
 echo "Copying .conky folder to repo..."
 cp -a ~/.conky .conky
 
+echo "Copying rofi folder to repo..."
+cp -a ~/.config/rofi rofi
+
 # echo "Copying .vim folder to repo"
 # cp -a ~/.vim .vim
 

@@ -17,7 +17,7 @@ echo "Copying polybar folder to .config directory..."
 cp -a polybar ~/.config
 
 echo "Copying compton.conf to .config directory..."
-cp compton.conf ~/.config
+#cp compton.conf ~/.config
 
 echo "Copying neofetch folder to .config directory..."
 cp -a neofetch ~/.config
@@ -29,7 +29,7 @@ echo "Copying .zshrc to home directory..."
 cp .zshrc ~/.zshrc
 
 echo "Copying .tmux.conf to home directory..."
-cp .tmux.conf ~/.tmux.conf
+#cp .tmux.conf ~/.tmux.conf
 
 echo "Copying .conky to home directory..."
 cp -a .conky ~/.conky

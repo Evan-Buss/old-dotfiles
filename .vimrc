@@ -163,7 +163,8 @@ set autoindent
 "let g:nord_comment_brightness=20
 "colorscheme nord 
 " colorscheme handmade-hero
-colorscheme dracula
+"colorscheme dracula
+
 " Brief help
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
