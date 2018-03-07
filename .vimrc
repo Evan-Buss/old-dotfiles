@@ -19,15 +19,12 @@ Plugin 'taohex/lightline-buffer'
 set laststatus=2
 set showtabline=2
 set hidden
+
 "Tmux Controls
 Plugin 'christoomey/vim-tmux-navigator'
 
 "Colorthemes
-Plugin 'dracula/vim'
-Plugin 'ayu-theme/ayu-vim'
 Plugin 'arcticicestudio/nord-vim'
-Plugin 'CreaturePhil/vim-handmade-hero'
-
 
 "Comments and file tree
 Plugin 'scrooloose/nerdtree'
@@ -71,6 +68,7 @@ if !has('gui_running')
 endif
 
 let g:lightline = {
+    \ 'colorscheme': 'nord',
     \ 'tabline': {
     \   'left': [ [ 'bufferinfo' ],
     \             [ 'separator' ],
@@ -158,12 +156,9 @@ set autoindent
 "filetype plugin indent on
 
 "Colorscheme settings
-" set termguicolors
-
-"let g:nord_comment_brightness=20
-"colorscheme nord 
-" colorscheme handmade-hero
-"colorscheme dracula
+set termguicolors
+let g:nord_comment_brightness=20
+colorscheme nord 
 
 " Brief help
 " :PluginList       - lists configured plugins

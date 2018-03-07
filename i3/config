@@ -4,16 +4,28 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Roboto 8
+font pango:RobotoMono Nerd Font 8
 
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
 
-# Before i3 v4.8, we used to recommend this one as the default:
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, its unicode glyph coverage is limited, the old
-# X core fonts rendering does not support right-to-left and this being a bitmap
-# font, it doesn’t scale on retina/hidpi displays.
+set $background        		#2e3440
+set $bg-light      			#3b4252
+set $bg-lighter     		#434c5e
+set $bg-lightest  			#4c566a
+
+set $text               	#d8dee9
+set $text-light         	#e5e9f0
+set $text-lighter       	#eceff4
+
+set $blue        			#8fbcbb
+set $blue2       			#88c0d0
+set $blue3       			#81a1c1
+set $blue4       			#5e81ac
+
+set $red 				    #bf616a
+set $orange  				#d09770
+set $yellow  				#ebcb8b
+set $green   				#a3be9c
+set $pinkish 				#b48ead
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -24,20 +36,17 @@ bindsym $mod+Control+t exec gnome-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
-# bindsym $mod+d exec dmenu_run
+# Program Launcher options
+#bindsym $mod+d exec dmenu_run
+#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+d exec "rofi -show run"
 bindsym $mod+Tab exec "rofi -show window"
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -46,10 +55,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -58,10 +67,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+Shift+v split v
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+v split h
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -116,94 +125,88 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 ## resize window (you can also use the mouse for that) default 10px
 mode "resize" {
-        bindsym Left resize shrink width 2 px or 2 ppt
-        bindsym Down resize grow height 2 px or 2 ppt
-        bindsym Up resize shrink height 2 px or 2 ppt
-        bindsym Right resize grow width 2 px or 2 ppt
+	bindsym Left resize shrink width 2 px or 2 ppt
+	bindsym Down resize grow height 2 px or 2 ppt
+	bindsym Up resize shrink height 2 px or 2 ppt
+	bindsym Right resize grow width 2 px or 2 ppt
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym Tab mode "default"
+	# back to normal: Enter or Escape
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+	bindsym Tab mode "default"
 }
 
 mode "gaps" {
-        bindsym Down gaps inner all minus 1
-        bindsym Left gaps outer all minus 1
-        bindsym Up gaps inner all plus 1
-        bindsym Right gaps outer all plus 1
+	bindsym Down gaps inner all minus 1
+	bindsym Left gaps outer all minus 1
+	bindsym Up gaps inner all plus 1
+	bindsym Right gaps outer all plus 1
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym Tab    mode "default"
+	# back to normal: Enter or Escape
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+	bindsym Tab    mode "default"
 }
 
+mode "system" {
+    bindsym l exec betterlockscreen --lock blur, mode "default"
+    bindsym e exec i3-msg exit, mode "default"
+    bindsym s exec betterlockscreen --suspend dimblur, mode "default"
+    bindsym h exec i3exit hibernate, mode "default"
+    bindsym r exec systemctl reboot, mode "default"
+    bindsym Shift+s exec systemctl poweroff, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+	bindsym Tab    mode "default"
+}
+
+bindsym $mod+Shift+s mode "system"
 bindsym $mod+r mode "resize"
 bindsym $mod+g mode "gaps"
 
-#bind volume keys
-# bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+
-# bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%-
+#Keyboard shortcuts
 bindsym XF86AudioRaiseVolume exec /home/evan/.config/i3/increase_volume.sh
 bindsym XF86AudioLowerVolume exec /home/evan/.config/i3/decrease_volume.sh
-# Media player controls
+bindsym XF86AudioMute exec amixer -q set Master toggle
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioStop exec playerctl stop
 bindsym XF86AudioPrev exec playerctl previous
+
 #Gaps settings
-gaps inner 16
+gaps inner 12
 gaps outer 0
 
-## assign window, you can find window class using xprop
-## Then focus the window
-## workspace 2 (web browsers)
-assign [class=Firefox|Chromium|Opera|Transmission-gtk] 2
-for_window [class=Firefox|Chromium|Opera|Transmission-gtk] focus
-## workspace 3 (file-manager)
-assign [class=Geany|libreoffice*|Wps|Et|Wpp|Atom|Vim] 3
-for_window [class=Geany|libreoffice*|Wps|Et|Wpp|Atom|Vim] focus
-## workspace 4 (text-editors)
-assign [class=Thunar|File-roller|Nautilus] 4
-for_window [class=Thunar|File-roller|Nautilus] focus
-## workspace 5 (graphic-utilities)
-assign [class=Termite|URxvt|Gnome-terminal] 5
-for_window [class=Termite|URxvt|Gnome-terminal] focus
-## workspace 6 (multimedia)
-assign [class=Spotify|Gnome-music] 6
-for_window [class=Spotify|Gnome-music] focus
-#assign [class=Vlc|mpv|Audacity|Ghb|Xfburn] 6
-## workspace 7 (graphics-editors)R
-assign [class=Gimp-2.8|Inkscape] 7
-for_window [class=Gimp-2.8|Inkscape] focus
-## workspace 8 (settings)
-assign [class=Lightdm-gtk-greeter-settings|Xfce4-settings-manager|Lxappearance] 8
-for_window [class=Lightdm-gtk-greeter-settings|Xfce4-settings-manager|Lxappearance] focus
-assign [class=Pamac*|System-config-printer.py|Lxtask|Font-manager|Gucharmap|Pavucontrol] 8
-for_window [class=Pamac*|System-config-printer.py|Lxtask|Font-manager|Gucharmap|Pavucontrol] focus
-
-
 #Remove title bars
-for_window [class="^.*"] border pixel 2
-client.focused #8be9fd #8be9fd #8be9fd #8be9fd #8be9fd
-client.unfocused #bd93f9 #bd93f9 #bd93f9 #bd93f9 #bd93f9
+for_window [class="^.*"] border pixel 3
+
+## colors                border      	background		text        	indicator
+client.focused          $blue2			$blue2			$bg-lightest	$blue2
+client.focused_inactive $bg-lightest   	$bg-lightest  	$text 			$bg-lightest
+client.unfocused        $bg-light 		$bg-light		$text 	   		$bg-light 
+client.urgent 			$red 			$background 	$text 			$red 
 
 #lock screen
 bindsym $mod+shift+x exec betterlockscreen --lock blur
-#use betterlockscreen --update ~/Pictures/....
-
-#Autostart
-exec --no-startup-id nm-applet
-exec --no-startup-id megasync
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
-
-#Background color / wallpaper
-# exec --no-startup-id xsetroot -solid "#000000"
-exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/yosemite.jpg
-
-#polybar setup
-exec_always --no-startup-id ~/.config/polybar/launch.sh &
+# betterlockscreen --update *pic location* to update lock screen
 
 #multimonitor support
-exec --no-startup-id xrandr --output HDMI-1--auto --left-of eDP-1
+exec --no-startup-id xrandr --output HDMI-1 --primary --auto --output eDP-1 --left-of HDMI-1 --auto
+
+#polybar start before the rest of the programs that rely on tray
+exec_always --no-startup-id ~/.config/polybar/launch.sh &
+
+#Autostart
+#exec --no-startup-id nm-applet
+exec --no-startup-id compton -b &
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
+exec --no-startup-id redshift-gtk &
+exec --no-startup-id megasync &
+
+#Background color or wallpaper
+#xsetroot -solid "#000000"
+exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/yosemite.jpg
+
+focus_follows_mouse no
