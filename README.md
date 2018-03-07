@@ -1,6 +1,6 @@
 # Linux Config Files
 
-![screenshot](https://raw.githubusercontent.com/Evan-Buss/dotfiles/master/screenshot.png)
+![screenshot](https://raw.githubusercontent.com/Evan-Buss/dotfiles/master/scrot2.png)
 
 ## Instructions
 * Run install.sh after downloading to copy config files to their respective directories.
