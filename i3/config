@@ -213,7 +213,6 @@ gaps outer 0
 
 #Remove title bars
 for_window [class="^.*"] border pixel 3
-# for_window [class="^.*"] border normal
 
 ## colors                border      	background		text        	indicator
 client.focused          $blue2			$blue2			$bg-lightest	$blue4
@@ -227,7 +226,6 @@ bindsym $mod+shift+x exec betterlockscreen --lock blur
 
 #multimonitor support
 exec --no-startup-id xrandr --output HDMI-1 --primary --auto --output eDP-1 --left-of HDMI-1 --auto
-
 
 #Autostart
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
