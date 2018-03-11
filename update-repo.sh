@@ -19,8 +19,8 @@ case "$answer" in
         echo "Copying .zshrc file to repo..."
         cp ~/.zshrc .zshrc
 
-        echo "Copying .zsh_history to repo"
-        cp ~/.zsh_history .zsh_history
+        # echo "Copying .zsh_history to repo"
+        # cp ~/.zsh_history .zsh_history
         
         echo "Copying .Xresources file to repo..."
         cp ~/.Xresources .Xresources
@@ -37,6 +37,7 @@ case "$answer" in
         rm -r polybar
         rm -r .conky
         rm -r dunst
+        rm -r Wallpapers
 
         echo "Copying .conky folder to repo..."
         cp -a ~/.conky .conky
@@ -49,6 +50,9 @@ case "$answer" in
 
         echo "Copying polybar folder from .config directory..."
         cp -a ~/.config/polybar polybar
+
+        echo "Copying Wallpapers folders from Pictures directory..."
+        cp -a ~/Pictures/Wallpapers Wallpapers
 
         echo "Complete!";;
 

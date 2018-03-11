@@ -1,5 +1,5 @@
 [global]
-    font = "UbuntuMono Nerd Font 11"
+    font = "Input Mono 10"
     frame_width = 1
     frame_color = "#88c0d0"
     markup = yes
@@ -30,7 +30,7 @@
 [shortcuts]
     close = ctrl+space
     close_all = ctrl+shift+space
-    history = ctrl+Shift+grave
+    #history = ctrl+Shift+grave
     context = ctrl+shift+period
 
 [urgency_low]

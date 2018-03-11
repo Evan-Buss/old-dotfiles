@@ -2,7 +2,7 @@
 
 set $mod Mod4
 
-font pango:RobotoMono Nerd Font 8
+font pango: Roboto Mono 8
 
 set $background        		#2e3440
 set $bg-light      			#3b4252
@@ -69,9 +69,9 @@ bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+Shift+v split v;exec notify-send -u low -t 2000 'Tile Horizontally'
-
-# split in vertical orientation
 bindsym $mod+v split h;exec notify-send -u low -t 2000 'Tile Vertically'
+bindsym $mod+q split toggle;exec notify-send -u low -t 2000 'Toggle Split'
+
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -136,13 +136,12 @@ for_window [class="Lxappearance"] floating enable border normal
 for_window [class="Nitrogen"] floating enable sticky enable border normal
 for_window [class="Oblogout"] fullscreen enable
 for_window [class="octopi"] floating enable
-for_window [title="About Pale Moon"] floating enable
 for_window [class="Pamac-manager"] floating enable
 for_window [class="Pamac-updater"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Qtconfig-qt4"] floating enable border normal
 for_window [class="qt5ct"] floating enable sticky enable border normal
-for_window [title="sudo"] floating enable border normal
+# for_window [title="sudo"] floating enable border normal
 for_window [class="Simple-scan"] floating enable border normal
 for_window [class="(?i)System-config-printer.py"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
@@ -207,19 +206,20 @@ gaps inner 12
 gaps outer 0
 
 #gaps only used if more than once container in the workspace
-smart_gaps on
+# smart_gaps on
 
 #draw borders only if it's not the only container in workspace
 # smart_borders on
 
 #Remove title bars
 for_window [class="^.*"] border pixel 3
+# for_window [class="^.*"] border normal
 
 ## colors                border      	background		text        	indicator
-client.focused          $blue2			$blue2			$bg-lightest	$blue2
-client.focused_inactive $bg-lightest   	$bg-lightest  	$text 			$bg-lightest
-client.unfocused        $bg-light 		$bg-light		$text 	   		$bg-light 
-client.urgent 			$red 			$background 	$text 			$red 
+client.focused          $blue2			$blue2			$bg-lightest	$blue4
+client.focused_inactive $bg-lightest   	$bg-lightest  	$text 			$bg-light
+client.unfocused        $bg-light 		$bg-light		$text 	   		$bg-light
+client.urgent 			$red 			$red 			$text 			$red
 
 #lock screen
 bindsym $mod+shift+x exec betterlockscreen --lock blur
@@ -228,22 +228,18 @@ bindsym $mod+shift+x exec betterlockscreen --lock blur
 #multimonitor support
 exec --no-startup-id xrandr --output HDMI-1 --primary --auto --output eDP-1 --left-of HDMI-1 --auto
 
-#polybar start before the rest of the programs that rely on tray
-exec_always --no-startup-id ~/.config/polybar/launch.sh &
 
 #Autostart
-#exec --no-startup-id nm-applet
-# exec --no-startup-id compton -b &
-exec --no-startup-id compton --config ~/.config/compton.conf -b &
-exec --no-startup-id dunst &
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
-#use redshift-gtk if you want a status icon in the tray
-exec --no-startup-id redshift &
+exec --no-startup-id dunst &
 exec --no-startup-id megasync &
+exec --no-startup-id redshift &
+exec_always --no-startup-id ~/.config/polybar/launch.sh &
+exec --no-startup-id nitrogen --restore; sleep 1;
+exec --no-startup-id compton --config ~/.config/compton.conf -b &
 
 #Background color or wallpaper
 #Debating using nitrogen
-#xsetroot -solid "#000000"
-exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/yosemite.jpg
+# exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/forest2.jpg
 
-focus_follows_mouse no
+# focus_follows_mouse no

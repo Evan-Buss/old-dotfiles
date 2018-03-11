@@ -43,6 +43,18 @@ Plugin 'ervandew/supertab'
 
 "Bracket completion
 Plugin 'jiangmiao/auto-pairs'
+"Plugin 'tpope/vim-surround'
+
+"Syntax highlighting
+Plugin 'vim-syntastic/syntastic'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 "Word highlighting
 Plugin 'dominikduda/vim_current_word'
@@ -156,7 +168,7 @@ set autoindent
 "filetype plugin indent on
 
 "Colorscheme settings
-set termguicolors
+"set termguicolors
 let g:nord_comment_brightness=20
 colorscheme nord 
 
