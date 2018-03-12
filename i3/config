@@ -174,23 +174,23 @@ mode "gaps" {
 	bindsym Tab    mode "default"
 }
 
-mode "system" {
-    bindsym l exec betterlockscreen --lock blur, mode "default"
-    bindsym e exec i3-msg exit, mode "default"
-    bindsym s exec betterlockscreen --suspend dimblur, mode "default"
-    bindsym h exec i3exit hibernate, mode "default"
-    bindsym r exec systemctl reboot, mode "default"
-    bindsym Shift+s exec systemctl poweroff, mode "default"
+# mode "system" {
+#     bindsym l exec betterlockscreen --lock blur, mode "default"
+#     bindsym e exec i3-msg exit, mode "default"
+#     bindsym s exec betterlockscreen --suspend dimblur, mode "default"
+#     bindsym h exec i3exit hibernate, mode "default"
+#     bindsym r exec systemctl reboot, mode "default"
+#     bindsym Shift+s exec systemctl poweroff, mode "default"
 
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-	bindsym Tab    mode "default"
-}
+#     # back to normal: Enter or Escape
+#     bindsym Return mode "default"
+#     bindsym Escape mode "default"
+# 	bindsym Tab    mode "default"
+# }
 
-bindsym $mod+Shift+s mode "system"
-bindsym $mod+r mode "resize"
+# bindsym $mod+Shift+s mode "system"
 bindsym $mod+g mode "gaps"
+bindsym $mod+r mode "resize"
 
 #Keyboard shortcuts
 bindsym XF86AudioRaiseVolume exec /home/evan/.config/i3/increase_volume.sh

@@ -258,25 +258,30 @@ label = %time%
 
 [module/powermenu]
 type = custom/menu
+
 #⏻
 label-open = " "
 label-open-font = 3
 label-open-foreground = ${colors.blue2}
+
 label-close-foreground = ${colors.red}
 label-close =""
+label-close-font = 3
+
 label-separator = " "
-menu-0-0 = lock
+
+menu-0-0 = " lock "
 menu-0-0-exec = betterlockscreen --lock blur
 
-menu-0-1 = suspend
+menu-0-1 = " suspend "
 menu-0-1-exec = betterlockscreen --suspend dimblur
 
-menu-0-2 = logout
+menu-0-2 = " logout "
 menu-0-2-exec = i3-msg exit
 
-menu-0-3 = shutdown
+menu-0-3 = " shutdown "
 menu-0-3-exec = systemctl poweroff
 
-menu-0-4 = "restart "
+menu-0-4 = " restart  "
 menu-0-4-exec = systemctl reboot
 ; vim:ft=dosini
