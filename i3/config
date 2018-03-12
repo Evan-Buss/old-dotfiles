@@ -206,7 +206,7 @@ gaps inner 12
 gaps outer 0
 
 #gaps only used if more than once container in the workspace
-# smart_gaps on
+smart_gaps on
 
 #draw borders only if it's not the only container in workspace
 # smart_borders on
@@ -236,8 +236,4 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh &
 exec --no-startup-id nitrogen --restore; sleep 1;
 exec --no-startup-id compton --config ~/.config/compton.conf -b &
 
-#Background color or wallpaper
-#Debating using nitrogen
-# exec --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/forest2.jpg
-
-# focus_follows_mouse no
+focus_follows_mouse no

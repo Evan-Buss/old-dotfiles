@@ -50,36 +50,24 @@ padding-right = 0
 module-margin-left = 0
 module-margin-right = 2
 
-font-0 = Fira Mono:weight=medium:size=10;3
+font-0 = Roboto:weight=regular:size=11;3
 # font-0 = DejaVuSans:weight=bold:size=10;3
 font-1 = SymbolsNerdFont:size=10;2
-font-2 = SymbolsNerdFont:size=12;2
-font-3 = Fira Mono:weight=medium:size=11;3
+font-2 = SymbolsNerdFont:size=14;2
+font-3 = Roboto:weight=medium:size=11;3
 
 
 modules-left = i3 spotifytitle
 modules-center = xwindow
-modules-right = volume sep volume1 cpu memory date-time wireless-netowork wired-network powermenu
+modules-right = volume sep volume1 cpu memory date time wireless-netowork wired-network powermenu
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
-# [bar/traybar]
-# monitor = eDP-1
-# width = 80
-# height = 28
-
-# bottom = true
-# override-redirect = false
-# wm-restack = true
-
-# background = ${colors.background}
-# foreground = ${colors.text}
-
-# tray-position = right
-# tray-detached = false
-# tray-maxsize = 16
-# tray-offset-y = 0
+tray-position = right
+tray-detached = false
+tray-maxsize = 16
+tray-offset-y = 0
 
 # modules-center = name
 
@@ -240,19 +228,29 @@ format-volume-underline = ${colors.blue2}
 ##  date
 ##########################
 
-[module/date-time]
+[module/date]
 type = internal/date
 interval = 1
 format = <label>
-date =" %m-%d-%Y "
-date-alt = " %A, %d %B %Y "
-time = "  %I:%M%p"
-time-alt = "  %H:%M:%S"
-
-format-prefix = "" 
+date = %m-%d-%Y
+date-alt = %A, %d %B %Y
+# time = "  %I:%M%p"
+# time-alt = "  %H:%M:%S"
+# 
+format-prefix = "DATE " 
 format-prefix-foreground = ${colors.red}
 format-underline = ${colors.blue2}
-label = %date%%time%
+label = %date%
+
+[module/time]
+type = internal/date
+format = <label>
+time = %I:%M%p
+time-alt = %H:%M:%S
+format-prefix = "TIME " 
+format-prefix-foreground = ${colors.red}
+format-underline = ${colors.blue2}
+label = %time%
 
 ##########################
 ## powermenu

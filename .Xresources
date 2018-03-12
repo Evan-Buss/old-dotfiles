@@ -6,7 +6,7 @@
 rofi.color-enabled: true
 
 !Change font
-rofi.font:          Fira Mono 14
+rofi.font:          Roboto Mono 14
 ! Property Name     BG       Border   Separator
 rofi.color-window:  #3B4252, #3B4252, #2E3440
 
@@ -90,7 +90,7 @@ XTerm*selectToClipboard:          true
 !alternative font settings with 'terminus':
 !URxvt.font:      -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1
 !URxvt.bold.font: -xos4-terminus-bold-r-normal--16-160-72-72-c-80-iso10646-1
-URxvt.font: xft:FiraMono:medium:size=11:antialias=true
+URxvt.font: xft:RobotoMono:medium:size=11:antialias=true
             xft:SymbolsNerdFont:size=11
             WunconSiji:size=11            
 !-xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1
