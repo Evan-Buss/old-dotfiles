@@ -1,76 +1,94 @@
 #!/bin/bash
 #copies files from directory to this git repo
 
-read -p "This will overwrite all local repo files... Are you sure you want to proceed(y/n)? " answer
+menu() {
+    echo -en "What would you like to do?\n" \
+        "1. Copy .vimrc file to repo.\n" \
+        "2. Copy .tmux.conf file to repo.\n" \
+        "3. Copy .zshrc file to repo.\n" \
+        "4. Copy .Xresources file to repo.\n" \
+        "5. Copy compton.conf file to repo.\n" \
+        "6. Copy .conky folder to repo.\n" \
+        "7. Copy dunst folder to repo.\n" \
+        "8. Copy i3 folder to repo.\n" \
+        "9. Copy polybar folder to repo.\n" \
+        "10. Copy Wallpapers folder to repo.\n" \
+        "11. Copy .fonts directory to repo.\n" \
+        "Press 'E' to exit...\n\n"
+}
 
+loop() {
+    read input
 
-case "$answer" in
-    y|Y)
-        #################
-        ## Files
-        #################
+    case $input in 
+        1) 
+            echo "Copying .vimrc file to repo..."
+            cp ~/.vimrc .vimrc
+            ;;
+        2) 
+            echo "Copying .tmux.conf file to repo..."
+            cp ~/.tmux.conf .tmux.conf
+            ;;
+        3)
+            echo "Copying .zshrc file to repo..."
+            cp ~/.zshrc .zshrc
+            ;;
+        4) 
+            echo "Copying .Xresources file to repo..."
+            cp ~/.Xresources .Xresources
+            ;;
+        5)
+            echo "Copying compton.conf file from .config directory..."
+            cp ~/.config/compton.conf compton.conf
+            ;;
+        6) 
+            rm -r .conky
+            echo "Copying .conky folder to repo..."
+            cp -a ~/.conky .conky
+            ;;
+        7) 
+            rm -r dunst
+            echo "Copying dunst folder to repo..."
+            cp -a ~/.config/dunst dunst
+            ;;
+        8) 
+            rm -r i3
+            echo "Copying i3 folder from .config directory..."
+            cp -a ~/.config/i3 i3
+            ;;
+        9) 
+            rm -r polybar
+             echo "Copying polybar folder from .config directory..."
+            cp -a ~/.config/polybar polybar
+            ;;
+        10)
+            rm -r Wallpapers
+            echo "Copying Wallpapers folder from Pictures directory..."
+            cp -a ~/Pictures/Wallpapers Wallpapers
+            ;;
+        11)
+            rm -r .fonts
+            echo "Copying .fonts folder from home directory..."
+            cp -a ~/.fonts .fonts
+            ;;
+        e|E)
+            echo "Exiting btw haHAA"
+            exit 0
+            ;;
+        *)
+            printf "Not a valid input...Try again...\n\n"
+            ;;
+    esac
+}
 
-        echo "Copying .vimrc file to repo..."
-        cp ~/.vimrc .vimrc
-        
-        echo "Copying .tmux.conf file to repo..."
-        cp ~/.tmux.conf .tmux.conf
+printf "This will overwrite local repo files... You have been warned\n\n"
 
-        echo "Copying .zshrc file to repo..."
-        cp ~/.zshrc .zshrc
+while true; do
 
-        # echo "Copying .zsh_history to repo"
-        # cp ~/.zsh_history .zsh_history
-        
-        echo "Copying .Xresources file to repo..."
-        cp ~/.Xresources .Xresources
+    menu ## Call the print menu function
 
-        echo "Copying compton.conf file from .config directory..."
-        cp ~/.config/compton.conf compton.conf
+    loop ## Call logic function
 
-        #################
-        ## Folders
-        #################
-
-        echo "Removing old folders from repo directory..."
-        rm -r i3
-        rm -r polybar
-        rm -r .conky
-        rm -r dunst
-        rm -r Wallpapers
-
-        echo "Copying .conky folder to repo..."
-        cp -a ~/.conky .conky
-
-        echo "Copying dunst folder to repo..."
-        cp -a ~/.config/dunst dunst
-
-        echo "Copying i3 folder from .config directory..."
-        cp -a ~/.config/i3 i3
-
-        echo "Copying polybar folder from .config directory..."
-        cp -a ~/.config/polybar polybar
-
-        echo "Copying Wallpapers folders from Pictures directory..."
-        cp -a ~/Pictures/Wallpapers Wallpapers
-
-        echo "Complete!";;
-
-        #Can't upload because they all have git repos
-        # echo "Copying rofi folder to repo..."
-        # cp -a ~/.config/rofi rofi
-
-        # echo "Copying .vim folder to repo"
-        # cp -a ~/.vim .vim
-
-        # echo "Copying .oh-my-zsh folder to repo..."
-        # cp -a ~/.oh-my-zsh .oh-my-zsh
-
-    n|N) 
-        echo "Understandable. Have a great day...";;
-    *)
-        echo "Invalid Reponse... Exiting";;
-esac
-
+done
 
 

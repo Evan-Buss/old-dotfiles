@@ -1,70 +1,94 @@
 #!/bin/bash
 #copies files from git repo to their home directories
 
-read -p "This will overwrite all your local config files... Are you sure you want to proceed(y/n)? " answer
+menu() {
+    echo -en "What would you like to do?\n" \
+        "1. Copy .vimrc file to local directory.\n" \
+        "2. Copy .tmux.conf file to local directory.\n" \
+        "3. Copy .zshrc file to local directory.\n" \
+        "4. Copy .Xresources file to local directory.\n" \
+        "5. Copy compton.conf file to local directory.\n" \
+        "6. Copy .conky folder to local directory.\n" \
+        "7. Copy dunst folder to local directory.\n" \
+        "8. Copy i3 folder to local directory.\n" \
+        "9. Copy polybar folder to local directory.\n" \
+        "10. Copy Wallpapers folder to local directory.\n" \
+        "11. Copy .fonts folder to local directory.\n" \
+        "Press 'E' to exit...\n\n"
+}
 
+loop() {
+    read input
 
-case "$answer" in
-    y|Y)
-        #################
-        ## Files
-        #################
-    
-        echo "Copying .vimrc file to home directory..."
-        cp .vimrc ~/.vimrc
+    case $input in 
+        1) 
+            echo "Copying .vimrc file to home directory..."
+            cp .vimrc ~/.vimrc
+            ;;
+        2) 
+            echo "Copying .tmux.conf to home directory..."
+            cp .tmux.conf ~/.tmux.conf
+            ;;
+        3)
+            echo "Copying .zshrc file to home directory..."
+            cp .zshrc ~/.zshrc
+            ;;
+        4) 
+            echo "Copying .Xresources file to home directory..."
+            cp .Xresources ~/.Xresources
+            ;;
+        5)
+            echo "Copying compton.conf file to .config directory..."
+            cp compton.conf ~/.config
+            ;;
+        6) 
+            rm -r ~/.conky
+            echo "Copying .conky folder to home directory..."
+            cp -a .conky ~/.conky
+            ;;
+        7) 
+            rm -r ~/.config/dunst
+            echo "Copying dunst folder to home directory..."
+            cp -a dunst ~/.config
+            ;;
+        8) 
+            rm -r ~/.config/i3
+            echo "Copying i3 folder to .config directory..."
+            cp -a i3 ~/.config
+            ;;
+        9) 
+            rm -r ~/.config/polybar
+            echo "Copying polybar folder to .config directory..."
+            cp -a polybar ~/.config
+            ;;
+        10)
+            rm -r ~/Pictures/Wallpapers
+            echo "Copying wallpapers folder to Pictures directory..."
+            cp -a Wallpapers ~/Pictures/
+            ;;
+        11)
+            rm -r ~/.fonts
+            echo "Copying .fonts folder from home directory..."
+            cp -a .fonts ~/.fonts
+            ;;
+        e|E)
+            echo "Exiting btw haHAA"
+            exit 0
+            ;;
+        *)
+            printf "Not a valid input...Try again...\n\n"
+            ;;
+    esac
+}
 
-        echo "Copying .tmux.conf to home directory..."
-        cp .tmux.conf ~/.tmux.conf
-        
-        echo "Copying .zshrc file to home directory..."
-        cp .zshrc ~/.zshrc
+printf "This will overwrite local config files... You have been warned\n\n"
 
-        # echo "Copying .zsh_history file to home directoy..."
-        # cp .zsh_history ~/.zsh_history
+while true; do
 
-        echo "Copying .Xresources file to home directory..."
-        cp .Xresources ~/.Xresources
-        
-        echo "Copying compton.conf file to .config directory..."
-        cp compton.conf ~/.config
+    menu ## Call the print menu function
 
-        #################
-        ## Folders
-        #################
+    loop ## Call logic function
 
-        echo "Removing old folders..."
-        rm -r ~/.config/i3
-        rm -r ~/.config/polybar
-        rm -r ~/.conky
-        rm -r ~/.config/dunst
-        rm -r ~/Pictures/Wallpapers
-
-        echo "Copying .conky folder to home directory..."
-        cp -a .conky ~/.conky
-
-        echo "Copying dunst folder to home directory..."
-        cp -a dunst ~/.config
-
-        echo "Copying i3 folder to .config directory..."
-        cp -a i3 ~/.config
-
-        echo "Copying polybar folder to .config directory..."
-        cp -a polybar ~/.config
-
-        echo "Copying wallpapers folder to Pictures directory..."
-        cp -a Wallpapers ~/Pictures/
-
-        echo "Complete!";;
-        # echo "Copying .oh-my-zsh folder to home directory..."
-        # cp -a .oh-my-zsh ~/.oh-my-zsh
-
-        # echo "Copying .vim folder to home directory..."
-        # cp -a .vim ~/.vim
-    n|N) 
-        echo "Understandable. Have a great day...";;
-    *)
-        echo "Invalid Reponse... Exiting";;
-esac
-
+done
 
 
