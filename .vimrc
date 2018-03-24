@@ -1,11 +1,7 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 """""""""""""
@@ -142,7 +138,6 @@ let g:lightline_buffer_reservelen = 20
 "Search only working directory
 "let g:ctrlp_working_path='c'
 
-"vim_current_word
 "Tab spacing
 set tabstop=8
 set shiftwidth=4
@@ -168,14 +163,6 @@ set autoindent
 "filetype plugin indent on
 
 "Colorscheme settings
-"set termguicolors
+set termguicolors
 let g:nord_comment_brightness=20
 colorscheme nord 
-
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ

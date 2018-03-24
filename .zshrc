@@ -8,7 +8,8 @@
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
-ZSH_THEME="norm"
+# ZSH_THEME="lambda"
+ZSH_THEME="lambda"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -37,7 +38,7 @@ ZSH_THEME="norm"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -74,10 +75,12 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='vim'
+   export EDITOR='micro'
 else
-   export EDITOR='vim'
+   export EDITOR='micro'
 fi
+
+export PATH="$HOME/bin:$PATH"
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -91,5 +94,6 @@ fi
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
+alias zshconfig="micro ~/.zshrc"
+alias microconfig="micro ~/.config/micro/settings.json"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
