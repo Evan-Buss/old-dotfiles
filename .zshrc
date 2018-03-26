@@ -9,7 +9,7 @@
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
 # ZSH_THEME="lambda"
-ZSH_THEME="lambda"
+ZSH_THEME="miloshadzic"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -96,4 +96,6 @@ export PATH="$HOME/bin:$PATH"
 # Example aliases
 alias zshconfig="micro ~/.zshrc"
 alias microconfig="micro ~/.config/micro/settings.json"
+alias todo="code /home/evan/MEGA/Misc/Computer\ Files/Linux/linux_to_do.txt"
+alias manifest="code /home/evan/MEGA/Misc/Computer\ Files/Linux/linux_manifest.txt"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
