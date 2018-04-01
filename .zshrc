@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/evan/.oh-my-zsh
+export ZSH=/home/evan/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -41,7 +41,7 @@ ZSH_THEME="miloshadzic"
 ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -80,8 +80,6 @@ else
    export EDITOR='micro'
 fi
 
-export PATH="$HOME/bin:$PATH"
-
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -94,8 +92,16 @@ export PATH="$HOME/bin:$PATH"
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias zshconfig="micro ~/.zshrc"
-alias microconfig="micro ~/.config/micro/settings.json"
-alias todo="code /home/evan/MEGA/Misc/Computer\ Files/Linux/linux_to_do.txt"
-alias manifest="code /home/evan/MEGA/Misc/Computer\ Files/Linux/linux_manifest.txt"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias zshconfig="code ~/.zshrc"
+alias vimconfig="code ~/.vimrc"
+alias text_files="code ~/MEGA/Text\ Files"
+alias linux_todo="code ~/MEGA/Text\ Files/linux_to_do.txt"
+alias manifest="code ~/MEGA/Text\ Files/linux_manifest.txt"
+alias todo="code ~/MEGA/Text\ Files/todo.txt"
+alias projects="code ~/MEGA/Text\ Files/projects.txt"
+
+
+
+# Environment Variables
+export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"

@@ -14,6 +14,7 @@ menu() {
         "9. Copy i3 folder to repo.\n" \
         "10. Copy polybar folder to repo.\n" \
         "11. Copy .fonts directory to repo.\n" \
+        "12. Copy argos scripts to repo.\n" \
         "Press 'E' or 'Q' to exit...\n\n"
 }
 
@@ -70,6 +71,11 @@ loop() {
             rm -r .fonts
             echo "Copying .fonts folder from home directory..."
             cp -a ~/.fonts .fonts
+            ;;
+        12)
+            rm -r argos
+            echo "Copying argos folder from .config directory..."
+            cp -a ~/.config/argos argos
             ;;
         e|E|q|Q)
             echo "Exiting btw haHAA"

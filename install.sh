@@ -14,7 +14,8 @@ menu() {
         "9. Copy polybar folder to local directory.\n" \
         "10. Copy Wallpapers folder to local directory.\n" \
         "11. Copy .fonts folder to local directory.\n" \
-        "Press 'E' to exit...\n\n"
+        "12. Copy argos folder to local directory\n" \ 
+        "Press 'E' or 'Q' to exit...\n\n"
 }
 
 loop() {
@@ -68,10 +69,15 @@ loop() {
             ;;
         11)
             rm -r ~/.fonts
-            echo "Copying .fonts folder from home directory..."
+            echo "Copying .fonts folder to home directory..."
             cp -a .fonts ~/.fonts
             ;;
-        e|E)
+        12)
+            rm -r ~/.config/argos
+            echo "Copying argos folder to home directory..."
+            cp -a argos ~/.config
+            ;;
+        e|E|q|Q)
             echo "Exiting btw haHAA"
             exit 0
             ;;

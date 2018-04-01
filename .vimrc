@@ -163,6 +163,6 @@ set autoindent
 "filetype plugin indent on
 
 "Colorscheme settings
-set termguicolors
-let g:nord_comment_brightness=20
-colorscheme nord 
+"set termguicolors
+"let g:nord_comment_brightness=20
+"colorscheme nord 
