@@ -16,11 +16,11 @@ set laststatus=2
 set showtabline=2
 set hidden
 
+"Colorscheme 
+Plugin 'altercation/vim-colors-solarized'
+
 "Tmux Controls
 Plugin 'christoomey/vim-tmux-navigator'
-
-"Colorthemes
-Plugin 'arcticicestudio/nord-vim'
 
 "Comments and file tree
 Plugin 'scrooloose/nerdtree'
@@ -39,10 +39,10 @@ Plugin 'ervandew/supertab'
 
 "Bracket completion
 Plugin 'jiangmiao/auto-pairs'
-"Plugin 'tpope/vim-surround'
 
 "Syntax highlighting
 Plugin 'vim-syntastic/syntastic'
+
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -68,15 +68,13 @@ map <C-n> :NERDTreeToggle<CR>
 "Clear search highlight by pressing enter
 nnoremap <CR> :noh<CR><CR>
 
-
-
 " use lightline-buffer in lightline
 if !has('gui_running')
     set t_Co=256
 endif
 
 let g:lightline = {
-    \ 'colorscheme': 'nord',
+    \ 'colorscheme': 'solarized',
     \ 'tabline': {
     \   'left': [ [ 'bufferinfo' ],
     \             [ 'separator' ],
@@ -101,7 +99,7 @@ let g:lightline = {
     \ },
     \ }
 
-" remap arrow keys
+" remap arrow keys to change buffer
 nnoremap <Left> :bprev<CR>
 nnoremap <Right> :bnext<CR>
 
@@ -132,14 +130,13 @@ let g:lightline_buffer_reservelen = 20
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"Ctrl-P Extensions
-"Set no max file limit in CtrlP
-"let g:ctrlp_max_files=0
-"Search only working directory
-"let g:ctrlp_working_path='c'
+"Ctrl-P Settings 
+let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_working_path_mode = 0
 
 "Tab spacing
-set tabstop=8
+set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
@@ -150,13 +147,23 @@ set number
 "Ruler
 set ruler
 
+"Enable mouse control in terminals
+set mouse=a
+
+"Show the last used command
+set showcmd
+"set cursorline
+
 "Search
 set ignorecase
 set incsearch
 set hlsearch
+set wildmenu
+set wildmode=longest:full,full
+set showmatch
 
 "Syntax highlighting
-syntax on
+syntax enable
 
 "Indentation
 set autoindent
@@ -164,5 +171,5 @@ set autoindent
 
 "Colorscheme settings
 "set termguicolors
-"let g:nord_comment_brightness=20
-"colorscheme nord 
+set background=dark
+colorscheme solarized
