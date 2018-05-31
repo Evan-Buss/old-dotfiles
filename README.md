@@ -22,8 +22,11 @@
     * Allows control of media like spotify from keyboard
   * redshift
     * Blue-light reducer
+  * Feh
+    * Wallpaper utility
   * Luv Icons
   * Wallpapers
+  
 
 ## File Install Locations
   * i3 config
