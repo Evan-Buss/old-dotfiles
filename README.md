@@ -23,7 +23,7 @@
   * redshift
     * Blue-light reducer
   * Feh
-    * Wallpaper utility
+    * Desktop wallpaper utility
   * Luv Icons
   * Wallpapers
   
