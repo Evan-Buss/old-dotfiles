@@ -12,6 +12,8 @@
     * Notification Daemon
   * Compton
     * Compositor
+  * Hyper Terminal
+    * Extensible terminal based on Node.js
   * lxappearance
     * Change icons, cursors, gtk-theme
   * nm-applet
@@ -25,7 +27,6 @@
   * Feh
     * Desktop wallpaper utility
   * Luv Icons
-  * Wallpapers
   
 
 ## File Install Locations
